@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" = "start" ] ; then
+	env HOME=/var/www pm2 start /home/dynamicteam/dynamicgroup/DynamicBot/StableBot/app.js
+	env HOME=/var/www pm2 logs app
+elif [ "$1" = "stop" ] ; then
+	env HOME=/var/www pm2 stop app
+elif [ "$1" = "restart" ] ; then
+	env HOME=/var/www pm2 restart app
+	env HOME=/var/www pm2 logs app
+elif [ "$1" = "logs" ] ; then
+	env HOME=/var/www pm2 logs app
+else
+	echo "Commande inconnu. [start/stop/restart/logs]"
+fi

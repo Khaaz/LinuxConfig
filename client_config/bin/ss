@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -eq 1 ] ; then
+	maim --hidecursor -s /home/khaaz/Documents/screenshots/$1.png
+	xclip -selection c -t image/png  /home/khaaz/Documents/screenshots/$1.png
+else
+	maim --hidecursor -s /tmp/sstemp.png
+	xclip -selection c -t image/png /tmp/sstemp.png
+	rm /tmp/sstemp.png
+fi
